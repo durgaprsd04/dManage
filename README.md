@@ -98,13 +98,16 @@ As mentioned above  there are two types of staff logins. The first type are the 
 Well as of now we have switched to java and tomcat as the servlet. The basic things to do are first setting up the servlet. Just download binary, put it somewhere and add to path. Then compile the __.java__ file you want to and copy the __.class__ file to the examples folder under webapp in the tomcat directory. After this make the appropriate changes in the web.xml file. These could be found in the tutorials point site, but I am just mentioning the facts here so that every body is on the same page. For database access we will be using jdbc and __araj, melvin__ can we use twitter bootstrap stylesheet. Please see how we could use it, and somebody study how jdbc can be used to write/read from the database(only jdbc) not through servlet( You can do that  through servlet if you are interested).
 
 # To do as of 13/6/2015
+
 Well as on now, database access has worked, we will be doing two important
 things. First as we have database access, we will be having a table for
 students with all their details, with roll number as primary key. This is just
 a suggestion, usually everything is done with roll number. Now we need to check
 the compatibility/usability of __twitter bootstrap__. This style if possible
 could be used.
-## An initial test system.
+
+## An initial test system.(Phase 1)
+
 After proper database access has been developed we will go for a development
 model we will develop a simple UI with a login and a password, for every
 student. On logged in  he should be able to see his details, such as name, roll
@@ -131,3 +134,15 @@ readability and ease of editing. There is also a great deal of ease if the
 functionality is split into smaller classes. Please do accordingly, with
 putting all the functions with database access in one folder, WEBUI in one
 folder and so on.
+
+## Phase 2 things to be done
+
+After the above implementations are done we will adding be features to these. The next set of jobs include creation of a user group known as faculties. They will be also uploade via a __.csv___ or __.xls__ file and will have associated metadata. All of their metadata except designation and  department are editable by the group faculties itself. Every faculty will be associated with department and each department will have an hod. This may not be a separate user. Usually hod has the permission to choose next HOD. On choosing the next HOD, from next login onwards he/she will loose the privileges of HOD. The privileges of HOD include
+* Approving courses started by the faculties.
+* Assign/Add faculties to a course.
+* Approve final/interim marklists, which on approval will be finalized.
+
+The above tasks are too complex for a direct implementation, so a simple step by step procedure is added below.
+
+To make the process simple we will go through this step by step, first a user group named faculty is created, with their email id as login and password as 'password'. Then they are granted the power of course creation, which means in their UI they will have an option to create a course. The course will be containing department, course-code, course-name, a brief summary, portions and textbooks. The next step include adding students which is done using a __.csv__ file or __.xls__ file. After creation of these all students who are registered on login should be able to see this particular course on courses registered. Faculty should have the option for adding new members individually to the course. The primary key to be used is roll number. 
+
